@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "cd242af8-2672-49d5-8931-2a087862f318",
+		"name": "Rest API - Flask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"andres\",\r\n    \"clave\": \"clave123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/auth/registrar",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"auth",
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciar Sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"andres\",\r\n    \"clave\": \"clave123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/auth/login",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Obtener Peliculas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/peliculas",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"peliculas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Peliculas Por Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/peliculas/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"peliculas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Peliculas Por Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/peliculas/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"peliculas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Pelicula",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"El padrino\",\r\n    \"estreno\": \"29/06/2018 (2h55min)\",\r\n    \"director\": \"Francis Ford Coppola\",\r\n    \"reparto\": \"Marlon Brando, Al Pacino\",\r\n    \"genero\": \"Crimen, Drama\",\r\n    \"sinopsis\": \"En el verano de 1945, se celebra la boda de Connie (Talia Shire) y Carlo Rizzi (Gianni Russo). Connie es la única hija de Don Vito Corleone (Marlon...\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/peliculas",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"peliculas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Pelicula",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"director\": \"Francis Ford Coppola\",\r\n    \"estreno\": \"29/06/2018 (3h55min)\",\r\n    \"genero\": \"Crimen, Drama\",\r\n    \"nombre\": \"El padrino\",\r\n    \"reparto\": \"Marlon Brando, Al Pacino\",\r\n    \"sinopsis\": \"En el verano de 1945, se celebra la boda de Connie (Talia Shire) y Carlo Rizzi (Gianni Russo). Connie es la única hija de Don Vito Corleone (Marlon...\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/peliculas/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"peliculas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
